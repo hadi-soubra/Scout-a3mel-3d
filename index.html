@@ -2,29 +2,98 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>3D A3mel Viewer</title>
+  <title>Arthur's Rally Encampment</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-  <style>
-    body {
-      margin: 0;
-      background-color: #7d7d7d;
-    }
-    model-viewer {
-      width: 100vw;
-      height: 100vh;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <model-viewer src="model.glb"
-                camera-controls
-                auto-rotate
-                background-color="#000"
-                alt="3D model"
-                exposure="1.0"
-                shadow-intensity="1"
-                ar>
-  </model-viewer>
+  <div>
+
+  <!-- ----------------------------------------------------------------- -->
+    <div class="show">
+
+      <div class="sidebar-left">
+        <h1>Rally Gate of England</h1>
+        <p>"By the power of Excalibur, all who enter here shall find wisdom and courage on their noble quest!"</p>
+      </div>
+
+      <model-viewer class="medium-model" src="model.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="2" exposure="1" auto-rotate camera-orbit="594.3deg 80.04deg 31.67m" field-of-view="20.11deg">
+          <div class="progress-bar hide" slot="progress-bar">
+              <div class="update-bar"></div>
+          </div>
+      </model-viewer>
+
+    </div>
+  <!-- ----------------------------------------------------------------- -->
+    <div class="show">
+
+      <model-viewer class="medium-model" src="model.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="2" exposure="1" auto-rotate camera-orbit="594.3deg 80.04deg 31.67m" field-of-view="20.11deg">
+          <div class="progress-bar hide" slot="progress-bar">
+              <div class="update-bar"></div>
+          </div>
+      </model-viewer>
+
+      <div class="sidebar-right">
+        <h1>Royal Owl Flag</h1>
+        <p>"The flag of Arthur waves proudly, a beacon of hope for all knights of the realm carried by Archimedes himself!"</p>
+      </div>
+
+    </div>
+  <!-- ----------------------------------------------------------------- -->
+
+              <div class="deco">
+
+                <!-- ----------------------------------------------------------------- -->
+                <div class="show-row">
+
+                  <div class="sidebar-row">
+                    <h1>Merlin's Kitchen</h1>
+                    <p>"Where magic meets sustenance ,enchanted meals for weary travelers!"</p>
+                  </div>
+
+                  <model-viewer class="small-model" src="model.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="2" exposure="1" auto-rotate camera-orbit="594.3deg 80.04deg 31.67m" field-of-view="20.11deg">
+                      <div class="progress-bar hide" slot="progress-bar">
+                          <div class="update-bar"></div>
+                      </div>
+                  </model-viewer>
+
+                </div>  
+                <!-- ----------------------------------------------------------------- -->
+                <div class="show-row">
+
+                  <div class="sidebar-row">
+                    <h1>Healer's Sanctuary</h1>
+                    <p>"Where wounds are mended and spirits restored by ancient healing arts!"</p>
+                  </div>
+
+                  <model-viewer  class="small-model" src="model.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="2" exposure="1" auto-rotate camera-orbit="594.3deg 80.04deg 31.67m" field-of-view="20.11deg">
+                      <div class="progress-bar hide" slot="progress-bar">
+                          <div class="update-bar"></div>
+                      </div>
+                  </model-viewer>
+
+                </div>  
+                <!-- ----------------------------------------------------------------- -->
+                <div class="show-row">
+
+                  <div class="sidebar-row">
+                    <h1>Royal Logistics</h1>
+                    <p>"Supplies and treasures gathered from across the kingdom for our noble cause!"</p>
+                  </div>
+
+                  <model-viewer class="small-model" src="model.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="2" exposure="1" auto-rotate camera-orbit="594.3deg 80.04deg 31.67m" field-of-view="20.11deg">
+                      <div class="progress-bar hide" slot="progress-bar">
+                          <div class="update-bar"></div>
+                      </div>
+                  </model-viewer>
+
+                </div>  
+                <!-- ----------------------------------------------------------------- -->
+
+              </div>
+
+  </div>
+
 </body>
 </html>
-
