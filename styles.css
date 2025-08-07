@@ -161,20 +161,31 @@
       font-style: italic;
     }
 
-    .progress-bar {
+     .progress-bar {
       display: block;
       width: 80%;
       height: 6px;
       max-height: 6px;
       border-radius: 3px;
       background-color: rgba(255, 215, 0, 0.3);
-      margin: 0 auto;
-      position: relative;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       overflow: hidden;
+      z-index: 10;
     }
 
     .progress-bar.hide {
-      display: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    .progress-bar {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
     }
 
     .update-bar {

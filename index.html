@@ -19,9 +19,9 @@
       </div>
 
       <model-viewer class="medium-model" src="model.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="2" exposure="1" auto-rotate camera-orbit="594.3deg 80.04deg 31.67m" field-of-view="20.11deg">
-        <div class="progress-bar" slot="progress-bar">
-            <div class="update-bar"></div>
-        </div>
+          <div class="progress-bar hide" slot="progress-bar">
+              <div class="update-bar"></div>
+          </div>
       </model-viewer>
 
     </div>
@@ -29,7 +29,7 @@
     <div class="show">
 
       <model-viewer class="medium-model" src="model.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="2" exposure="1" auto-rotate camera-orbit="594.3deg 80.04deg 31.67m" field-of-view="20.11deg">
-          <div class="progress-bar" slot="progress-bar">
+          <div class="progress-bar hide" slot="progress-bar">
               <div class="update-bar"></div>
           </div>
       </model-viewer>
@@ -68,7 +68,7 @@
                   </div>
 
                   <model-viewer  class="small-model" src="model.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="2" exposure="1" auto-rotate camera-orbit="594.3deg 80.04deg 31.67m" field-of-view="20.11deg">
-                      <div class="progress-bar" slot="progress-bar">
+                      <div class="progress-bar hide" slot="progress-bar">
                           <div class="update-bar"></div>
                       </div>
                   </model-viewer>
@@ -83,7 +83,7 @@
                   </div>
 
                   <model-viewer class="small-model" src="model.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="2" exposure="1" auto-rotate camera-orbit="594.3deg 80.04deg 31.67m" field-of-view="20.11deg">
-                      <div class="progress-bar" slot="progress-bar">
+                      <div class="progress-bar hide" slot="progress-bar">
                           <div class="update-bar"></div>
                       </div>
                   </model-viewer>
@@ -95,6 +95,43 @@
 
   </div>
 
-</body>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const modelViewers = document.querySelectorAll('model-viewer');
+    
+    modelViewers.forEach(viewer => {
+        const progressBar = viewer.querySelector('.progress-bar');
+        
+        // Show progress bar when loading starts
+        viewer.addEventListener('load', () => {
+            setTimeout(() => {
+                progressBar.classList.add('hide');
+            }, 200); // Small delay to show completion
+        });
+        
+        viewer.addEventListener('error', () => {
+            progressBar.classList.add('hide');
+        });
+        
+        // Show progress during loading
+        viewer.addEventListener('progress', (event) => {
+            const progressBar = viewer.querySelector('.progress-bar');
+            const updateBar = progressBar.querySelector('.update-bar');
+            
+            progressBar.classList.remove('hide');
+            updateBar.style.width = `${event.detail.totalProgress * 100}%`;
+            
+            // Hide when 100% complete
+            if (event.detail.totalProgress >= 1) {
+                setTimeout(() => {
+                    progressBar.classList.add('hide');
+                }, 300);
+            }
+        });
+    });
+});
+</script>
 
+
+</body>
 </html>
