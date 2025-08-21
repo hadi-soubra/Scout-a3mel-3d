@@ -130,6 +130,15 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
       margin-top: 10px;
       border: 2px solid #FFD700;
+        display: flex;              /* enables flexbox */
+  justify-content: center;    /* center horizontally */
+  align-items: center;
+    }
+
+    .small-model img {
+object-fit: contain;
+      width: 30vw;
+      height: 60vh;
     }
 
 
